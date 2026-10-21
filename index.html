@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stephen Curry - GOAT</title>
-    <!-- Importação de fontes via Google Fonts -->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -12,28 +12,36 @@
 </head>
 <body>
 
-    <!-- Botão de Alternar Modo Escuro/Claro -->
-    <button id="theme-toggle" class="theme-toggle" aria-label="Alternar modo escuro" title="Alternar Modo Escuro">
-        🌙
-    </button>
+    
+    <div class="top-controls">
+        <select id="lang-select" class="lang-select" aria-label="Selecionar Idioma">
+            <option value="pt">🇧🇷 Português</option>
+            <option value="en">🇺🇸 English</option>
+            <option value="es">🇪🇸 Español</option>
+        </select>
+
+        <button id="theme-toggle" class="theme-toggle" aria-label="Alternar modo escuro" title="Alternar Modo Escuro">
+            🌙
+        </button>
+    </div>
 
     <header class="hero-header">
-        <div class="author-tag">Por: Kaio Felipe de Oliveira Vieira</div>
+        <div class="author-tag" data-i18n="author">Por: Kaio Felipe de Oliveira Vieira</div>
         
         <div class="image-container">
             <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&q=80&w=1000" alt="Stephen Curry em quadra de basquete" class="profile-img">
         </div>
 
-        <h1>QUEM É STEPHEN CURRY?</h1>
-        <p class="subtitle">Aqui você vai aprender mais sobre a NBA e principalmente sobre o jogador Stephen Curry</p>
+        <h1 data-i18n="heroTitle">QUEM É STEPHEN CURRY?</h1>
+        <p class="subtitle" data-i18n="heroSubtitle">Aqui você vai aprender mais sobre a NBA e principalmente sobre o jogador Stephen Curry</p>
     </header>
 
     <main class="container">
         
         <article class="card">
-            <h2>PARA INÍCIO DE CONVERSA</h2>
-            <p>Stephen Curry é um jogador profissional de basquete norte-americano, conhecido por revolucionar o esporte com sua habilidade excepcional nos arremessos de três pontos. Ele atua como armador e é considerado um dos maiores jogadores da história da NBA.</p>
-            <div class="info-source">Fonte: <a href="https://www.nba.com/stats/player/201939" target="_blank" rel="noopener">NBA.com / Basketball Reference</a></div>
+            <h2 data-i18n="card1Title">PARA INÍCIO DE CONVERSA</h2>
+            <p data-i18n="card1Text">Stephen Curry é um jogador profissional de basquete norte-americano, conhecido por revolucionar o esporte com sua habilidade excepcional nos arremessos de três pontos. Ele atua como armador e é considerado um dos maiores jogadores da história da NBA.</p>
+            <div class="info-source"><span data-i18n="sourceLabel">Fonte:</span> <a href="https://www.nba.com/stats/player/201939" target="_blank" rel="noopener">NBA.com / Basketball Reference</a></div>
             <div class="reaction-bar">
                 <button class="reaction-btn">💖 <span>0</span></button>
                 <button class="reaction-btn">👍 <span>0</span></button>
@@ -42,9 +50,9 @@
         </article>
 
         <article class="card">
-            <h2>2× MVP da Temporada Regular</h2>
-            <p>(2015 e 2016), sendo o primeiro e único jogador a vencer o prêmio de forma unânime na história da liga em 2016.</p>
-            <div class="info-source">Fonte: <a href="https://www.nba.com/history/awards/mvp" target="_blank" rel="noopener">NBA History & Awards</a></div>
+            <h2 data-i18n="card2Title">2× MVP da Temporada Regular</h2>
+            <p data-i18n="card2Text">(2015 e 2016), sendo o primeiro e único jogador a vencer o prêmio de forma unânime na história da liga em 2016.</p>
+            <div class="info-source"><span data-i18n="sourceLabel">Fonte:</span> <a href="https://www.nba.com/history/awards/mvp" target="_blank" rel="noopener">NBA History & Awards</a></div>
             <div class="reaction-bar">
                 <button class="reaction-btn">🤩 <span>0</span></button>
                 <button class="reaction-btn">😴 <span>0</span></button>
@@ -53,9 +61,9 @@
         </article>
 
         <article class="card">
-            <h2>O EFEITO CURRY <span class="highlight">(Curry Gravity)</span></h2>
-            <p>O impacto de Stephen Curry em quadra vai muito além dos pontos que ele marca. O conceito de "Curry Gravity" (Gravidade de Curry) descreve a forma como sua presença atrai múltiplos defensores para fora do garrafão, mesmo quando ele está sem a posse da bola. O pavor de seus arremessos de longa distância força os adversários a dobrarem a marcação na linha de três, criando caminhos livres para enterradas e arremessos desmarcados de seus companheiros. Curry não apenas pontua; ele transforma o posicionamento tático de todo o time rival.</p>
-            <div class="info-source">Fonte: <a href="https://www.espn.com" target="_blank" rel="noopener">ESPN / Análises Táticas NBA</a></div>
+            <h2><span data-i18n="card3Title">O EFEITO CURRY</span> <span class="highlight">(Curry Gravity)</span></h2>
+            <p data-i18n="card3Text">O impacto de Stephen Curry em quadra vai muito além dos pontos que ele marca. O conceito de "Curry Gravity" (Gravidade de Curry) descreve a forma como sua presença atrai múltiplos defensores para fora do garrafão, mesmo quando ele está sem a posse da bola. O pavor de seus arremessos de longa distância força os adversários a dobrarem a marcação na linha de três, criando caminhos livres para enterradas e arremessos desmarcados de seus companheiros. Curry não apenas pontua; ele transforma o posicionamento tático de todo o time rival.</p>
+            <div class="info-source"><span data-i18n="sourceLabel">Fonte:</span> <a href="https://www.espn.com" target="_blank" rel="noopener">ESPN / Análises Táticas NBA</a></div>
             <div class="reaction-bar">
                 <button class="reaction-btn">👌 <span>0</span></button>
                 <button class="reaction-btn">🤔 <span>0</span></button>
@@ -64,17 +72,17 @@
         </article>
 
         <article class="card">
-            <h2>THE CAREER <span class="highlight">(Carreira do Curry)</span></h2>
-            <h3>Draft e Início (2009)</h3>
-            <p>Selecionado na 7ª posição do Draft da NBA de 2009 pelo Golden State Warriors, franquia na qual construiu toda a sua carreira profissional.</p>
-            <div class="info-source">Fonte: <a href="https://www.nba.com/warriors" target="_blank" rel="noopener">Golden State Warriors Official History</a></div>
+            <h2><span data-i18n="card4Title">THE CAREER</span> <span class="highlight" data-i18n="card4Highlight">(Carreira do Curry)</span></h2>
+            <h3 data-i18n="card4Sub">Draft e Início (2009)</h3>
+            <p data-i18n="card4Text">Selecionado na 7ª posição do Draft da NBA de 2009 pelo Golden State Warriors, franquia na qual construiu toda a sua carreira profissional.</p>
+            <div class="info-source"><span data-i18n="sourceLabel">Fonte:</span> <a href="https://www.nba.com/warriors" target="_blank" rel="noopener">Golden State Warriors Official History</a></div>
         </article>
 
     </main>
 
-    <!-- Personagem Pixelado Interativo do Curry -->
+ 
     <div id="curry-widget" class="curry-widget" title="Clique para ver o troféu!">
-        <div id="speech-bubble" class="speech-bubble">Clique em mim! 🏆</div>
+        <div id="speech-bubble" class="speech-bubble" data-i18n="widgetDefault">Clique em mim! 🏆</div>
         <div class="pixel-character">
             <div class="trophy" id="trophy">🏆</div>
             <div class="pixel-curry">
