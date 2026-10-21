@@ -1,4 +1,4 @@
-/* Reseta estilos padrão e define variáveis de cores do Golden State Warriors */
+/* Reseta estilos padrão e define variáveis de cores (Modo Claro Padrão) */
 :root {
     --gsw-blue: #1D428A;
     --gsw-yellow: #FFC72C;
@@ -6,6 +6,28 @@
     --card-bg: #ffffff;
     --text-dark: #222222;
     --text-muted: #555555;
+    --card-h2: #1D428A;
+    --card-h3: #333333;
+    --source-text: #777777;
+    --source-link: #1D428A;
+    --source-link-hover: #0d2354;
+    --reaction-bg: #f8f9fa;
+    --reaction-border: #e2e8f0;
+}
+
+/* Modo Escuro (Ativado via classe no <body>) */
+body.dark-mode {
+    --bg-gray: #121620;
+    --card-bg: #1e2433;
+    --text-dark: #f0f4f8;
+    --text-muted: #c3cddb;
+    --card-h2: #ffc72c;
+    --card-h3: #e2e8f0;
+    --source-text: #94a3b8;
+    --source-link: #ffc72c;
+    --source-link-hover: #ffd966;
+    --reaction-bg: #283144;
+    --reaction-border: #3b4861;
 }
 
 * {
@@ -20,6 +42,36 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     padding-bottom: 40px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Botão de Alternar Modo Escuro */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1100;
+    background-color: var(--card-bg);
+    color: var(--text-dark);
+    border: 2px solid var(--gsw-yellow);
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
 }
 
 /* Estilização do Cabeçalho (Header) */
@@ -88,59 +140,67 @@ body {
     padding: 24px;
     margin-bottom: 24px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+}
+
+body.dark-mode .card {
+    border-left-color: var(--gsw-yellow);
 }
 
 .card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
 
 .card h2 {
     font-family: 'Poppins', sans-serif;
-    color: var(--gsw-blue);
+    color: var(--card-h2);
     font-size: 1.4rem;
     margin-bottom: 12px;
+    transition: color 0.3s ease;
 }
 
 .card h3 {
     font-family: 'Poppins', sans-serif;
-    color: #333;
+    color: var(--card-h3);
     font-size: 1.1rem;
     margin-top: 10px;
     margin-bottom: 6px;
+    transition: color 0.3s ease;
 }
 
 .card p {
     color: var(--text-muted);
     font-size: 1rem;
     margin-bottom: 12px;
+    transition: color 0.3s ease;
 }
 
 .highlight {
     font-size: 0.9em;
-    color: #666;
+    color: var(--text-muted);
     font-weight: normal;
 }
 
 /* Estilização dos Links de Fonte de Informação */
 .info-source {
     font-size: 0.85rem;
-    color: #777777;
+    color: var(--source-text);
     font-style: italic;
     margin-bottom: 14px;
     display: block;
+    transition: color 0.3s ease;
 }
 
 .info-source a {
-    color: var(--gsw-blue);
+    color: var(--source-link);
     text-decoration: underline;
     font-weight: 600;
     transition: color 0.2s ease;
 }
 
 .info-source a:hover {
-    color: #0d2354;
+    color: var(--source-link-hover);
 }
 
 /* Botões de Reação */
@@ -152,8 +212,9 @@ body {
 }
 
 .reaction-btn {
-    background-color: #f8f9fa;
-    border: 2px solid #e2e8f0;
+    background-color: var(--reaction-bg);
+    border: 2px solid var(--reaction-border);
+    color: var(--text-dark);
     border-radius: 20px;
     padding: 8px 16px;
     font-size: 1rem;
@@ -167,6 +228,7 @@ body {
 .reaction-btn:hover {
     background-color: var(--gsw-yellow);
     border-color: var(--gsw-yellow);
+    color: #111111;
     transform: scale(1.05);
 }
 
@@ -176,6 +238,10 @@ body {
 
 .reaction-btn span {
     font-weight: bold;
+    color: var(--card-h2);
+}
+
+.reaction-btn:hover span {
     color: var(--gsw-blue);
 }
 
@@ -193,9 +259,9 @@ body {
 }
 
 .speech-bubble {
-    background: #ffffff;
+    background: var(--card-bg);
     border: 2px solid var(--gsw-blue);
-    color: var(--gsw-blue);
+    color: var(--card-h2);
     font-size: 0.8rem;
     font-weight: bold;
     padding: 6px 10px;
@@ -205,6 +271,10 @@ body {
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     position: relative;
     transition: all 0.3s ease;
+}
+
+body.dark-mode .speech-bubble {
+    border-color: var(--gsw-yellow);
 }
 
 .speech-bubble::after {
@@ -218,6 +288,10 @@ body {
     border-color: var(--gsw-blue) transparent;
     display: block;
     width: 0;
+}
+
+body.dark-mode .speech-bubble::after {
+    border-color: var(--gsw-yellow) transparent;
 }
 
 .pixel-character {
@@ -359,11 +433,20 @@ body {
 
 .curry-widget.active .speech-bubble {
     background-color: var(--gsw-yellow);
-    color: var(--gsw-blue);
-    border-color: var(--gsw-blue);
+    color: #112958;
+    border-color: var(--gsw-yellow);
 }
 
+/* Responsividade para celulares */
 @media (max-width: 600px) {
+    .theme-toggle {
+        top: 12px;
+        right: 12px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+
     .hero-header h1 {
         font-size: 1.6rem;
     }
