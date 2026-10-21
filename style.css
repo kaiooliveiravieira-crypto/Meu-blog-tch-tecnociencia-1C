@@ -80,7 +80,7 @@ body {
     padding: 0 16px;
 }
 
-/* Estilização dos Cards (Substituindo múltiplos mains por artigos) */
+/* Estilização dos Cards */
 .card {
     background-color: var(--card-bg);
     border-left: 6px solid var(--gsw-blue);
@@ -114,13 +114,33 @@ body {
 .card p {
     color: var(--text-muted);
     font-size: 1rem;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .highlight {
     font-size: 0.9em;
     color: #666;
     font-weight: normal;
+}
+
+/* Estilização dos Links de Fonte de Informação */
+.info-source {
+    font-size: 0.85rem;
+    color: #777777;
+    font-style: italic;
+    margin-bottom: 14px;
+    display: block;
+}
+
+.info-source a {
+    color: var(--gsw-blue);
+    text-decoration: underline;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.info-source a:hover {
+    color: #0d2354;
 }
 
 /* Botões de Reação */
@@ -159,7 +179,190 @@ body {
     color: var(--gsw-blue);
 }
 
-/* Responsividade para celulares */
+/* Personagem Pixelado do Curry */
+.curry-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 25px;
+    z-index: 1000;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+}
+
+.speech-bubble {
+    background: #ffffff;
+    border: 2px solid var(--gsw-blue);
+    color: var(--gsw-blue);
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px 6px 0;
+    border-style: solid;
+    border-color: var(--gsw-blue) transparent;
+    display: block;
+    width: 0;
+}
+
+.pixel-character {
+    position: relative;
+    width: 60px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pixel-curry {
+    position: relative;
+    width: 44px;
+    height: 65px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.curry-widget:hover .pixel-curry {
+    transform: translateY(-3px);
+}
+
+.curry-head {
+    width: 26px;
+    height: 24px;
+    background-color: #c68642;
+    border-radius: 4px;
+    position: relative;
+}
+
+.hair {
+    width: 26px;
+    height: 6px;
+    background-color: #2b1d0c;
+    border-radius: 3px 3px 0 0;
+}
+
+.eyes {
+    position: absolute;
+    top: 10px;
+    left: 4px;
+    width: 18px;
+    height: 3px;
+    background: transparent;
+    box-shadow: 4px 0 0 #000, 12px 0 0 #000;
+}
+
+.beard {
+    position: absolute;
+    bottom: 0;
+    width: 26px;
+    height: 5px;
+    background-color: #2b1d0c;
+    border-radius: 0 0 4px 4px;
+}
+
+.curry-body {
+    width: 30px;
+    height: 26px;
+    background-color: var(--gsw-blue);
+    border-top: 3px solid var(--gsw-yellow);
+    border-bottom: 2px solid var(--gsw-yellow);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jersey-number {
+    color: var(--gsw-yellow);
+    font-size: 11px;
+    font-weight: 800;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1;
+}
+
+.curry-arms {
+    position: absolute;
+    top: 24px;
+    width: 44px;
+    height: 20px;
+}
+
+.arm {
+    width: 7px;
+    height: 20px;
+    background-color: #c68642;
+    position: absolute;
+    top: 0;
+    transition: transform 0.3s ease;
+}
+
+.left-arm {
+    left: 0;
+}
+
+.right-arm {
+    right: 0;
+}
+
+.curry-legs {
+    width: 26px;
+    height: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.leg {
+    width: 9px;
+    height: 15px;
+    background-color: var(--gsw-blue);
+    border-bottom: 5px solid #ffffff;
+}
+
+.trophy {
+    font-size: 26px;
+    position: absolute;
+    top: 10px;
+    opacity: 0;
+    transform: scale(0.2) translateY(20px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.curry-widget.active .trophy {
+    opacity: 1;
+    transform: scale(1) translateY(-25px);
+}
+
+.curry-widget.active .left-arm {
+    transform: rotate(-135deg) translate(-2px, -8px);
+}
+
+.curry-widget.active .right-arm {
+    transform: rotate(135deg) translate(2px, -8px);
+}
+
+.curry-widget.active .speech-bubble {
+    background-color: var(--gsw-yellow);
+    color: var(--gsw-blue);
+    border-color: var(--gsw-blue);
+}
+
 @media (max-width: 600px) {
     .hero-header h1 {
         font-size: 1.6rem;
@@ -171,5 +374,10 @@ body {
 
     .card {
         padding: 18px;
+    }
+
+    .curry-widget {
+        bottom: 12px;
+        right: 12px;
     }
 }
